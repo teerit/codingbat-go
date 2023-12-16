@@ -4,17 +4,55 @@ package warmup2
 // Given an slice of ints, return true if the sequence of numbers 1, 2, 3
 // appears in the slice somewhere.
 func Array123(s []int) bool {
+	c := 0
+	for i := 0; i < len(s); i++ {
+		if c == 3 {
+			return true
+		} else if s[i] == 1 {
+			c = 1
+		} else if s[i] == c+1 {
+			c++
+		} else {
+			return false
+		}
+	}
+
+	if c == 3 {
+		return true
+	}
+
 	return false
 }
 
 // Given a slice of ints, return the number of 9's in the slice.
 func ArrayCount9(s []int) int {
-	return 0
+	cnt := 0
+	for _, v := range s {
+		if v == 9 {
+			cnt++
+		}
+	}
+	return cnt
 }
 
 // Given a slice of ints, return true if one of the first 4 elements in the
 // slice is a 9. The slice length may be less than 4.
 func ArrayFront(s []int) bool {
+
+	if len(s) < 4 {
+		for i := 0; i < len(s); i++ {
+			if s[i] == 9 {
+				return true
+			}
+		}
+	} else {
+		for i := 0; i < 4; i++ {
+			if s[i] == 9 {
+				return true
+			}
+		}
+	}
+
 	return false
 }
 
@@ -53,5 +91,9 @@ func StringSplosion(s string) string {
 // Given a string and a non-negative int n, return a larger string that is n
 // copies of the original string.
 func StringTimes(s string, n int) string {
-	return ""
+	res := ""
+	for i := 0; i < n; i++ {
+		res += s
+	}
+	return res
 }
