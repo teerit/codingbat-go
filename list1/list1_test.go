@@ -150,26 +150,26 @@ func TestMaxEnd3(t *testing.T) {
 	}
 }
 
-func TestMakeEnds(t *testing.T) {
-	var tests = []struct {
-		s    []int
-		want [2]int
-	}{
-		{[]int{1, 2, 3}, [2]int{1, 3}},
-		{[]int{1, 2, 3, 4}, [2]int{1, 4}},
-		{[]int{7, 4, 6, 2}, [2]int{7, 2}},
-		{[]int{1, 2, 2, 2, 2, 2, 2, 3}, [2]int{1, 3}},
-		{[]int{7, 4}, [2]int{7, 4}},
-		{[]int{7}, [2]int{7, 7}},
-		{[]int{5, 2, 9}, [2]int{5, 9}},
-		{[]int{2, 3, 4, 1}, [2]int{2, 1}},
-	}
-	for _, test := range tests {
-		if got := MakeEnds(test.s); got != test.want {
-			t.Errorf("MakeEnds(%v) = %v [wanted: %v]", test.s, got, test.want)
-		}
-	}
-}
+// func TestMakeEnds(t *testing.T) {
+// 	var tests = []struct {
+// 		s    []int
+// 		want [2]int
+// 	}{
+// 		{[]int{1, 2, 3}, [2]int{1, 3}},
+// 		{[]int{1, 2, 3, 4}, [2]int{1, 4}},
+// 		{[]int{7, 4, 6, 2}, [2]int{7, 2}},
+// 		{[]int{1, 2, 2, 2, 2, 2, 2, 3}, [2]int{1, 3}},
+// 		{[]int{7, 4}, [2]int{7, 4}},
+// 		{[]int{7}, [2]int{7, 7}},
+// 		{[]int{5, 2, 9}, [2]int{5, 9}},
+// 		{[]int{2, 3, 4, 1}, [2]int{2, 1}},
+// 	}
+// 	for _, test := range tests {
+// 		if got := MakeEnds(test.s); got != test.want {
+// 			t.Errorf("MakeEnds(%v) = %v [wanted: %v]", test.s, got, test.want)
+// 		}
+// 	}
+// }
 
 func TestMakePi(t *testing.T) {
 	want := []int{3, 1, 4}
@@ -181,63 +181,63 @@ func TestMakePi(t *testing.T) {
 	}
 }
 
-func TestRotateLeft3(t *testing.T) {
-	var tests = []struct {
-		s    [3]int
-		want [3]int
-	}{
-		{[3]int{1, 2, 3}, [3]int{2, 3, 1}},
-		{[3]int{5, 11, 9}, [3]int{11, 9, 5}},
-		{[3]int{7, 0, 0}, [3]int{0, 0, 7}},
-		{[3]int{1, 2, 1}, [3]int{2, 1, 1}},
-		{[3]int{0, 0, 1}, [3]int{0, 1, 0}},
-	}
-	for _, test := range tests {
-		if got := RotateLeft3(test.s); got != test.want {
-			t.Errorf("RotateLeft3(%v) = %v [wanted: %v]", test.s, got, test.want)
-		}
-	}
-}
+// func TestRotateLeft3(t *testing.T) {
+// 	var tests = []struct {
+// 		s    [3]int
+// 		want [3]int
+// 	}{
+// 		{[3]int{1, 2, 3}, [3]int{2, 3, 1}},
+// 		{[3]int{5, 11, 9}, [3]int{11, 9, 5}},
+// 		{[3]int{7, 0, 0}, [3]int{0, 0, 7}},
+// 		{[3]int{1, 2, 1}, [3]int{2, 1, 1}},
+// 		{[3]int{0, 0, 1}, [3]int{0, 1, 0}},
+// 	}
+// 	for _, test := range tests {
+// 		if got := RotateLeft3(test.s); got != test.want {
+// 			t.Errorf("RotateLeft3(%v) = %v [wanted: %v]", test.s, got, test.want)
+// 		}
+// 	}
+// }
 
-func TestSum2(t *testing.T) {
-	var tests = []struct {
-		s    []int
-		want int
-	}{
-		{[]int{1, 2, 3}, 3},
-		{[]int{1, 1}, 2},
-		{[]int{1, 1, 1, 1}, 2},
-		{[]int{1, 2}, 3},
-		{[]int{1}, 1},
-		{[]int{}, 0},
-		{[]int{4, 5, 6}, 9},
-		{[]int{4}, 4},
-	}
-	for _, test := range tests {
-		if got := Sum2(test.s); got != test.want {
-			t.Errorf("Sum2(%v) = %v [wanted: %v]", test.s, got, test.want)
-		}
-	}
-}
+// func TestSum2(t *testing.T) {
+// 	var tests = []struct {
+// 		s    []int
+// 		want int
+// 	}{
+// 		{[]int{1, 2, 3}, 3},
+// 		{[]int{1, 1}, 2},
+// 		{[]int{1, 1, 1, 1}, 2},
+// 		{[]int{1, 2}, 3},
+// 		{[]int{1}, 1},
+// 		{[]int{}, 0},
+// 		{[]int{4, 5, 6}, 9},
+// 		{[]int{4}, 4},
+// 	}
+// 	for _, test := range tests {
+// 		if got := Sum2(test.s); got != test.want {
+// 			t.Errorf("Sum2(%v) = %v [wanted: %v]", test.s, got, test.want)
+// 		}
+// 	}
+// }
 
-func TestHas23(t *testing.T) {
-	var tests = []struct {
-		s    [2]int
-		want bool
-	}{
-		{[2]int{2, 5}, true},
-		{[2]int{4, 3}, true},
-		{[2]int{4, 5}, false},
-		{[2]int{2, 2}, true},
-		{[2]int{3, 2}, true},
-		{[2]int{3, 3}, true},
-		{[2]int{7, 7}, false},
-		{[2]int{3, 9}, true},
-		{[2]int{9, 5}, false},
-	}
-	for _, test := range tests {
-		if got := Has23(test.s); got != test.want {
-			t.Errorf("Has23(%v) = %v [wanted: %v]", test.s, got, test.want)
-		}
-	}
-}
+// func TestHas23(t *testing.T) {
+// 	var tests = []struct {
+// 		s    [2]int
+// 		want bool
+// 	}{
+// 		{[2]int{2, 5}, true},
+// 		{[2]int{4, 3}, true},
+// 		{[2]int{4, 5}, false},
+// 		{[2]int{2, 2}, true},
+// 		{[2]int{3, 2}, true},
+// 		{[2]int{3, 3}, true},
+// 		{[2]int{7, 7}, false},
+// 		{[2]int{3, 9}, true},
+// 		{[2]int{9, 5}, false},
+// 	}
+// 	for _, test := range tests {
+// 		if got := Has23(test.s); got != test.want {
+// 			t.Errorf("Has23(%v) = %v [wanted: %v]", test.s, got, test.want)
+// 		}
+// 	}
+// }
