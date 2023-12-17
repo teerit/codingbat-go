@@ -60,7 +60,24 @@ func ArrayFront(s []int) bool {
 // string is the first 3 chars, or whatever is there if the string is less
 // than length 3. Return n copies of the front
 func FrontTimes(s string, n int) string {
-	return ""
+	r := ""
+	chars := []rune(s)
+	if len(chars) < 3 {
+		for i := 0; i < n; i++ {
+			r += s
+		}
+		return r
+	} else {
+		c := ""
+		for i := 0; i < 3; i++ {
+			c += string(chars[i])
+		}
+
+		for i := 0; i < n; i++ {
+			r += c
+		}
+		return r
+	}
 }
 
 // Given a string, return the count of the number of times that a substring length
