@@ -82,7 +82,12 @@ func MaxEnd3(a [3]int) [3]int {
 // Given an array of ints, return a new array length 2 containing the first and
 // last elements from the original array. The original array will be length 1 or more.
 func MakeEnds(i []int) [2]int {
-	return [2]int{}
+
+	if len(i) == 1 {
+		return [2]int{i[0], i[0]}
+	}
+
+	return [2]int{i[0], i[len(i)-1]}
 }
 
 // Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
@@ -98,17 +103,40 @@ func MakePi() []int {
 // Given an array of ints length 3, return an array with the elements
 // "rotated left" so [3]int{1, 2, 3} yields [3]int{2, 3, 1}.
 func RotateLeft3(a [3]int) [3]int {
-	return [3]int{}
+	res := [3]int{}
+	for i := 0; i < 2; i++ {
+		res[i] = a[i+1]
+	}
+	res[2] = a[0]
+	return res
 }
 
 // Given an array of ints, return the sum of the first 2 elements in the array.
 // If the array length is less than 2, just sum up the elements that exist,
 // returning 0 if the array is length 0.
 func Sum2(a []int) int {
-	return 0
+	if len(a) == 0 {
+		return 0
+	}
+
+	if len(a) == 1 {
+		return a[0]
+	}
+
+	sum := 0
+	for i := 0; i < 2; i++ {
+		sum += a[i]
+	}
+
+	return sum
 }
 
 // Given an int array length 2, return true if it contains a 2 or a 3.
 func Has23(i [2]int) bool {
+	for _, v := range i {
+		if v == 3 || v == 2 {
+			return true
+		}
+	}
 	return false
 }
