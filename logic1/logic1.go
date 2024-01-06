@@ -20,6 +20,14 @@ func CaughtSpeeding(speed int, isBirthday bool) int {
 // The number 6 is a truly great number. Given two int values, a and b, return true
 // if either one is 6. Or if their sum or difference is 6.
 func Love6(a, b int) bool {
+	if a == 6 || b == 6 {
+		return true
+	}
+
+	if a+b == 6 || b-a == 6 || a-b == 6 {
+		return true
+	}
+
 	return false
 }
 
@@ -30,19 +38,41 @@ func Love6(a, b int) bool {
 // result is 2 (yes). With the exception that if either of you has style of 2 or less,
 // then the result is 0 (no). Otherwise the result is 1 (maybe).
 func DateFashion(you, date int) int {
-	return 0
+	if you <= 2 || date <= 2 {
+		return 0
+	}
+
+	if you >= 8 || date >= 8 {
+		return 2
+	}
+
+	return 1
 }
 
 // Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive,
 // are forbidden, so in that case just return 20.
 func SortaSum(a, b int) int {
-	return 0
+	sum := a + b
+	if sum <= 19 && sum >= 10 {
+		return 20
+	}
+	return sum
 }
 
 // Given a number n, return true if n is in the range 1..10, inclusive. Unless
 // "outsideMode" is true, in which case return true if the number is less or equal
 // to 1, or greater or equal to 10.
 func In1To10(n int, outsideMode bool) bool {
+	if n >= 1 && n <= 10 {
+		return true
+	}
+
+	if outsideMode {
+		if n <= 1 || n >= 10 {
+			return true
+		}
+	}
+
 	return false
 }
 
